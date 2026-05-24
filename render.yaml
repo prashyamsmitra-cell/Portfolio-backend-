@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: prashyam-portfolio-backend
+    runtime: node
+    plan: free
+    buildCommand: corepack pnpm install --no-frozen-lockfile && corepack pnpm build
+    startCommand: corepack pnpm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22.12.0
+      - key: ADMIN_ID
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: ADMIN_SESSION_SECRET
+        sync: false
+      - key: ADMIN_COOKIE_SAME_SITE
+        value: none
+      - key: CORS_ORIGIN
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_SECURE
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: SMTP_FROM
+        sync: false
