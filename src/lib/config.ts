@@ -26,6 +26,8 @@ const smtpConfigured = Boolean(
 export const config = {
   port: parseNumber(process.env.PORT, 3001),
   nodeEnv: process.env.NODE_ENV ?? "development",
+  databaseUrl: process.env.DATABASE_URL ?? "",
+  databaseSsl: parseBoolean(process.env.DATABASE_SSL, false),
   corsOrigin: (process.env.CORS_ORIGIN ?? "")
     .split(",")
     .map((origin) => origin.trim())
