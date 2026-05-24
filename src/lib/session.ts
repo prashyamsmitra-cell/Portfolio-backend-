@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-import type { CookieOptions, Response } from "express";
+import type { CookieOptions, Request, Response } from "express";
 import { config, isProduction } from "./config";
 
 const COOKIE_NAME = "prashyam_portfolio_admin";
@@ -81,4 +81,9 @@ export function clearSessionCookie(response: Response) {
 
 export function getSessionCookieName() {
   return COOKIE_NAME;
+}
+
+export function getSessionFromRequest(request: Request) {
+  const token = request.cookies?.[getSessionCookieName()];
+  return verifySessionToken(token);
 }
